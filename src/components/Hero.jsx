@@ -12,7 +12,7 @@ export default function Hero() {
           </p>
 
           <h1 className="display mt-8 text-[clamp(2.4rem,6vw,4.75rem)]">
-            Reliable systems<br />Practical<em className="soft"> solutions.</em>
+            Conceive . Build. <em className="soft">Evolve.</em>
           </h1>
 
           <p className="soft mt-8 max-w-[50ch] text-lg">
