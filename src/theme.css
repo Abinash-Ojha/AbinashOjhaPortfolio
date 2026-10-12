@@ -1,0 +1,62 @@
+:root{
+  --ivory:#F2EBDD; --charcoal:#242522; --burgundy:#713D42; --taupe:#A69A89; --black:#171815;
+}
+/* "Paper" pages (light) and "Night" pages (dark) set their own colour roles */
+.paper{--fg:var(--charcoal);--soft:rgba(36,37,34,.76);--rule:rgba(166,154,137,.65);--accent:var(--burgundy);background:var(--ivory);color:var(--fg)}
+.night{--fg:var(--ivory);--soft:var(--taupe);--rule:#3A3B36;--accent:var(--taupe);background:var(--black);color:var(--fg)}
+
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--black);font-family:'DM Sans',system-ui,sans-serif;font-size:1.0625rem;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a:focus-visible,button:focus-visible{outline:2px solid var(--burgundy);outline-offset:4px;box-shadow:0 0 0 4px var(--ivory)}
+::selection{background:var(--burgundy);color:var(--ivory)}
+
+.display{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.02;letter-spacing:-.01em}
+.label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.72rem;line-height:1.6;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
+.nav-link{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);transition:color .2s}
+.nav-link:hover{color:var(--fg)}
+.accent{color:var(--accent)}
+.soft{color:var(--soft)}
+.rule-t{border-top:1px solid var(--rule)}
+
+/* the verse */
+.verse{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(1.4rem,2.3vw,1.75rem);line-height:1.5}
+.verse span{display:block}
+.verse span:nth-child(even){padding-left:1.4rem}
+
+.dropcap::first-letter{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;float:left;font-size:3.9em;line-height:.8;padding:.06em .1em 0 0;color:var(--taupe)}
+
+.btn{display:inline-block;padding:.95rem 2.1rem;background:var(--burgundy);color:var(--ivory);border:1px solid var(--burgundy);font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,border-color .3s}
+.btn:hover{background:transparent;border-color:var(--taupe)}
+.link{border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .2s}
+.link:hover{color:var(--accent)}
+
+/* printed plate */
+.plate{padding:12px;border:1px solid var(--rule);background:rgba(255,255,255,.35)}
+.plate img{display:block;width:100%;height:auto;filter:sepia(.22) saturate(.8) contrast(1.02);transition:filter .5s}
+.plate:hover img{filter:none}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+.arrow{display:inline-block;transition:transform .25s}
+a:hover .arrow{transform:translateX(5px)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .plate img,.arrow,.btn{transition:none}
+}
+/* aged-paper card used in the hero */
+.vellum{--fg:var(--charcoal);--soft:rgba(36,37,34,.84);--rule:rgba(36,37,34,.35);--accent:#5E3036;
+  background:linear-gradient(160deg,#D6C6A8,#C4B08E);color:var(--fg)}
+  
+
+  /* flat tan page used for the projects section */
+.tan{--fg:var(--charcoal);--soft:rgba(36,37,34,.84);--rule:rgba(36,37,34,.3);--accent:#5E3036;
+  background:#CDBA97;color:var(--fg)}
+.btn-solid{display:inline-block;padding:.85rem 1.8rem;background:var(--charcoal);color:var(--ivory);
+  border:1px solid var(--charcoal);font-weight:500;font-size:.78rem;letter-spacing:.14em;
+  text-transform:uppercase;transition:background .3s,border-color .3s}
+.btn-solid:hover{background:var(--burgundy);border-color:var(--burgundy)}
+
+
+  
