@@ -28,7 +28,7 @@ export default function About() {
 
             <blockquote className="mt-12 border-l border-[var(--accent)] pl-6">
               <p className="display text-3xl italic leading-snug md:text-4xl">
-                Good engineering begins with understanding the problem.
+                Look beneath the surface. Build beyond the obvious.
               </p>
             </blockquote>
           </div>
