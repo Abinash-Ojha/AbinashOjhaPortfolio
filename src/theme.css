@@ -523,3 +523,126 @@ em.shimmer {
     transition: none
   }
 }
+
+/* ---------- skills, contact and footer ---------- */
+.spec {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line2);
+  border-radius: 0
+}
+
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none
+}
+
+.ticks::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--mint);
+  border-left: 2px solid var(--mint)
+}
+
+.ticks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--mint);
+  border-right: 2px solid var(--mint)
+}
+
+/* row with an emerald hover bar */
+.row-hover {
+  transition: background .25s, box-shadow .25s
+}
+
+.row-hover:hover {
+  background: rgba(82, 224, 169, .06);
+  box-shadow: inset 3px 0 0 var(--mint)
+}
+
+/* footer wordmark */
+.wordmark {
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 12.5vw, 10.5rem);
+  line-height: .95;
+  padding-bottom: .08em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line2);
+  transition: -webkit-text-stroke-color .4s
+}
+
+.wordmark:hover {
+  -webkit-text-stroke-color: var(--mint)
+}
+
+/* square back-to-top button */
+.back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  border: 1px solid var(--line2);
+  padding: .6rem 1rem;
+  transition: border-color .2s, color .2s
+}
+
+.back-top:hover {
+  border-color: var(--mint);
+  color: var(--mint)
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+  .row-hover,
+  .wordmark,
+  .back-top {
+    transition: none
+  }
+}
+
+/* ---------- sharp corners everywhere ---------- */
+[class*="rounded"],
+.btn,
+.btn-solid,
+.plate,
+.plate img {
+  border-radius: 0 !important
+}
+
+/* links inside white cards: dark green on hover */
+.vellum .nav-link:hover,
+.vellum .link:hover {
+  color: #0B7A55
+}
+
+/* slim dark scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #2A2A2A #000
+}
+
+::-webkit-scrollbar {
+  width: 10px
+}
+
+::-webkit-scrollbar-track {
+  background: #000
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border: 2px solid #000
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mint)
+}

@@ -22,16 +22,26 @@ export default function Skills() {
           The languages, frameworks and platforms behind the work above.
         </p>
 
-        <Reveal className="mx-auto mt-16 max-w-4xl">
-          {groups.map(([group, items]) => (
-            <div key={group} className="grid gap-1 border-t border-dotted border-[var(--rule)] py-5 md:grid-cols-[15rem_1fr] md:gap-8 md:py-6">
-              <h3 className="display text-[1.7rem] italic leading-tight">{group}</h3>
-              <p className="min-w-0 break-words text-[1.05rem] leading-relaxed text-[var(--soft)]">
-                {items.join(', ')}
+        <Reveal className="spec ticks mx-auto mt-16 max-w-4xl">
+          {groups.map(([group, items], i) => (
+            <div
+              key={group}
+              className="row-hover grid gap-2 border-b border-[var(--line)] px-5 py-6 last:border-b-0 md:grid-cols-[16rem_1fr] md:gap-8 md:px-7"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="label accent">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="display text-[1.7rem] italic leading-tight">{group}</h3>
+              </div>
+              <p className="display min-w-0 break-words text-[1.3rem] leading-relaxed md:text-[1.45rem]">
+                {items.map((item, j) => (
+                  <span key={item}>
+                    {j > 0 && <span className="accent mx-2.5" aria-hidden="true">/</span>}
+                    <span className="soft transition-colors hover:text-[var(--text)]">{item}</span>
+                  </span>
+                ))}
               </p>
             </div>
           ))}
-          <div className="border-t border-dotted border-[var(--rule)]" />
         </Reveal>
       </div>
     </section>

@@ -20,7 +20,7 @@ export default function Contact() {
               <p className="display text-6xl md:text-8xl">Let's build
 <em className="soft"> together</em></p>
               <p className="soft mt-8 max-w-[40ch] text-lg">
-               I'm open to software engineering opportunities, interesting technical challenges, and conversations about building useful software.
+                I'm open to software engineering opportunities, interesting technical challenges, and conversations about building useful software.
               </p>
             </div>
 
@@ -30,7 +30,7 @@ export default function Contact() {
                   <a
                     href={href}
                     {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
-                    className="group grid grid-cols-[6.5rem_1fr_auto] items-baseline gap-4 py-5 transition-colors hover:text-[var(--accent)]"
+                    className="group grid grid-cols-[5.5rem_1fr_auto] items-baseline gap-4 py-5 transition-colors hover:text-[var(--accent)] md:grid-cols-[6.5rem_1fr_auto]"
                   >
                     <span className="label accent">{label}</span>
                     <span className="display min-w-0 break-words text-2xl md:text-3xl">{value}</span>
@@ -44,23 +44,12 @@ export default function Contact() {
         </div>
       </section>
 
-      <footer className="ink border-t border-[var(--rule)] px-6 py-10 text-center">
-        <p className="label">Designed &amp; built by Abinash Ojha</p>
-
-        <p className="label mt-3">
-          Cormorant Garamond · DM Sans · JetBrains Mono
-        </p>
-
-        <p className="label mt-3">
-          © {new Date().getFullYear()} Abinash Ojha
-        </p>
-
-        <p className="mt-5">
-          <a href="#top" className="nav-link link">
-            Back to the top{" "}
-            <span className="arrow" aria-hidden="true">↑</span>
-          </a>
-        </p>
+      <footer className="ink border-t border-[var(--line)] px-6 py-12 text-center">
+        <span className="mx-auto block h-px w-12 bg-[var(--mint)]" aria-hidden="true" />
+        <p className="label mt-6">Designed &amp; built by Abinash Ojha</p>
+        <p className="label mt-2">Cormorant Garamond · DM Sans · JetBrains Mono</p>
+        <p className="label mt-2">© {new Date().getFullYear()} Abinash Ojha</p>
+      
       </footer>
     </>
   )

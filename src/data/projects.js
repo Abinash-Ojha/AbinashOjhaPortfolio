@@ -81,6 +81,6 @@ export const projects = [
     stack: ['React', 'Spring Boot WebFlux', 'Gemini API'],
     image: research, alt: 'Smart Research Assistant interface with a content input, an operation selector and a response panel',
     caption: 'The workspace',
-    live: 'https://lnkd.in/diTDH8P8', liveLabel: 'Open project',
+    live: 'https://smart-research-assistant.netlify.app/', liveLabel: 'Open project',
   },
 ]
