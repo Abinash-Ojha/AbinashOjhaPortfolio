@@ -1,56 +1,55 @@
 :root {
-  --bg: #000000;
-  --bg2: #000000;
+  --bg: #FFFFFF;
+  --bg2: #FFFFFF;
   --panel: #0A0A0A;
-  --line: #1F1F1F;
-  --line2: #333333;
-  --text: #F2F2F2;
-  --muted: #A1A1A1;
+  /* card background */
+  --line: #E5E5E5;
+  --line2: #CFCFCF;
+  --text: #0A0A0A;
+  --muted: #525252;
   --mint: #52E0A9;
   --mint-deep: #2FB583;
   --mint-ink: #06110D;
+  --green-ink: #0B7A55;
+  /* accent on white */
   /* old variable names kept so every component keeps working */
-  --green: var(--mint);
-  --green-soft: var(--mint);
-  --green-deep: var(--mint);
+  --green: var(--green-ink);
+  --green-soft: var(--green-ink);
+  --green-deep: var(--green-ink);
   --ink: var(--bg);
   --ink-line: var(--line2);
-  --taupe: var(--mint);
+  --taupe: var(--green-ink);
   --ivory: var(--text);
   --charcoal: var(--bg);
-  --burgundy: var(--mint-deep);
+  --burgundy: var(--green-ink);
   --black: var(--bg);
 }
 
-/* Every section uses the same dark roles on pure black */
+/* Sections: white page, dark text */
 .night,
 .paper,
 .light,
 .ink,
 .tan,
-.mist,
-.vellum {
+.mist {
   --fg: var(--text);
   --soft: var(--muted);
   --rule: var(--line);
-  --accent: var(--mint);
-  color: var(--fg)
+  --accent: var(--green-ink);
+  color: var(--fg);
 }
 
 .night,
 .paper,
 .light,
-.ink {
+.ink,
+.hero-glow {
   background: var(--bg)
 }
 
 .tan,
 .mist {
   background: var(--bg2)
-}
-
-.hero-glow {
-  background: var(--bg)
 }
 
 #work,
@@ -60,31 +59,34 @@
   border-top: 1px solid var(--line)
 }
 
-/* hero card: pure white with black text */
+/* Cards: black, light text, mint accent (hero, projects, skills, contact) */
+.vellum,
+.spec,
+.mist .ink,
+.tan .ink {
+  --fg: #F2F2F2;
+  --soft: #A1A1A1;
+  --rule: #2A2A2A;
+  --line2: #333333;
+  --accent: var(--mint);
+  color: var(--fg);
+  background: var(--panel);
+}
+
 .vellum {
-  --fg: #0A0A0A;
-  --soft: #404040;
-  --rule: #D9D9D9;
-  --accent: #0B7A55;
-  background: #FFFFFF;
   border: 0;
-  box-shadow: 0 30px 70px -30px rgba(255, 255, 255, .18)
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, .45);
 }
 
 .vellum a:focus-visible {
-  outline-color: #0B7A55
-}
-
-/* project description cards */
-.mist .ink,
-.tan .ink {
-  background: var(--panel);
-  border: 1px solid var(--line2)
+  outline-color: var(--mint)
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px
+  scroll-padding-top: 72px;
+  scrollbar-width: thin;
+  scrollbar-color: #BDBDBD #fff;
 }
 
 body {
@@ -95,13 +97,13 @@ body {
   font-size: 1.0625rem;
   line-height: 1.75;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased;
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--mint);
-  outline-offset: 4px
+  outline: 2px solid var(--accent, var(--green-ink));
+  outline-offset: 4px;
 }
 
 ::selection {
@@ -113,7 +115,7 @@ button:focus-visible {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 500;
   line-height: 1.02;
-  letter-spacing: -.01em
+  letter-spacing: -.01em;
 }
 
 .label {
@@ -122,7 +124,7 @@ button:focus-visible {
   line-height: 1.6;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--soft)
+  color: var(--soft);
 }
 
 .nav-link {
@@ -132,11 +134,11 @@ button:focus-visible {
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--soft);
-  transition: color .2s
+  transition: color .2s;
 }
 
 .nav-link:hover {
-  color: var(--mint)
+  color: var(--accent)
 }
 
 .accent {
@@ -149,7 +151,7 @@ button:focus-visible {
 
 em,
 em.soft {
-  color: var(--mint)
+  color: var(--accent)
 }
 
 .rule-t {
@@ -163,85 +165,67 @@ em.soft {
   font-size: 3.9em;
   line-height: .8;
   padding: .06em .1em 0 0;
-  color: var(--mint)
+  color: var(--accent);
 }
 
-/* buttons: mint with dark text */
+/* buttons */
 .btn {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--mint);
-  color: var(--mint-ink);
-  border: 1px solid var(--mint);
-  border-radius: 10px;
+  background: #0A0A0A;
+  color: #fff;
+  border: 1px solid #0A0A0A;
   font-weight: 600;
   font-size: .85rem;
   letter-spacing: .08em;
   text-transform: uppercase;
-  box-shadow: 0 16px 34px -16px rgba(82, 224, 169, .55);
-  transition: background .3s, transform .3s
+  box-shadow: 0 16px 34px -16px rgba(0, 0, 0, .45);
+  transition: background .3s, border-color .3s, transform .3s;
 }
 
 .btn:hover {
-  background: #7BEBC0;
-  border-color: #7BEBC0;
-  transform: translateY(-2px)
+  background: var(--green-ink);
+  border-color: var(--green-ink);
+  transform: translateY(-2px);
 }
 
+/* btn-solid works on both white and black (mint) */
 .btn-solid {
   display: inline-block;
   padding: .85rem 1.7rem;
   background: var(--mint);
   color: var(--mint-ink);
   border: 1px solid var(--mint);
-  border-radius: 10px;
   font-weight: 600;
   font-size: .78rem;
   letter-spacing: .1em;
   text-transform: uppercase;
-  transition: background .3s, transform .3s
+  transition: background .3s, transform .3s;
 }
 
 .btn-solid:hover {
   background: #7BEBC0;
   border-color: #7BEBC0;
-  transform: translateY(-2px)
+  transform: translateY(-2px);
 }
 
 .link {
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
-  transition: color .2s
+  transition: color .2s;
 }
 
 .link:hover {
-  color: var(--mint)
+  color: var(--accent)
 }
 
-/* project number: large outlined numeral */
 .numeral {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 500;
   font-size: clamp(4.5rem, 11vw, 8rem);
   line-height: .8;
   color: transparent;
-  -webkit-text-stroke: 1px var(--line2)
-}
-
-/* project screenshot: white frame */
-.plate {
-  padding: 12px;
-  background: #fff;
-  border: 1px solid rgba(255, 255, 255, .2);
-  border-radius: 14px;
-  box-shadow: 0 28px 56px -28px rgba(255, 255, 255, .12)
-}
-
-.plate img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px
+  -webkit-text-stroke: 1px var(--line2);
 }
 
 .reveal {
@@ -265,20 +249,19 @@ a:hover .arrow {
 }
 
 /* ---------- hero text animations ---------- */
-/* words slide up from behind a mask */
 .rise {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
   padding: 0 .08em .12em 0;
-  margin: 0 -.08em -.12em 0
+  margin: 0 -.08em -.12em 0;
 }
 
 .rise>span {
   display: inline-block;
   transform: translateY(110%);
   animation: rise .9s cubic-bezier(.2, .7, .2, 1) forwards;
-  animation-delay: var(--d, 0s)
+  animation-delay: var(--d, 0s);
 }
 
 @keyframes rise {
@@ -287,12 +270,11 @@ a:hover .arrow {
   }
 }
 
-/* generic fade-up, staggered with --d */
 .fade-up {
   opacity: 0;
   transform: translateY(14px);
   animation: fadeUp .8s ease forwards;
-  animation-delay: var(--d, 0s)
+  animation-delay: var(--d, 0s);
 }
 
 @keyframes fadeUp {
@@ -302,12 +284,11 @@ a:hover .arrow {
   }
 }
 
-/* eyebrow line draws itself */
 .draw {
   display: inline-block;
   width: 0;
   animation: draw .8s ease forwards;
-  animation-delay: var(--d, 0s)
+  animation-delay: var(--d, 0s);
 }
 
 @keyframes draw {
@@ -316,15 +297,15 @@ a:hover .arrow {
   }
 }
 
-/* slow mint shimmer on the last word */
+/* shimmer on the last word (deep green so it reads on white) */
 em.shimmer {
-  background: linear-gradient(90deg, var(--mint) 0%, #D5FFEE 50%, var(--mint) 100%);
+  background: linear-gradient(90deg, #0B7A55 0%, #3FD7A0 50%, #0B7A55 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: shimmer 3.5s linear 1.6s infinite
+  animation: shimmer 3.5s linear 1.6s infinite;
 }
 
 @keyframes shimmer {
@@ -335,6 +316,194 @@ em.shimmer {
   to {
     background-position: -200% 0
   }
+}
+
+/* ---------- projects ---------- */
+.accent-rule {
+  position: relative;
+  border-top: 1px solid var(--line)
+}
+
+.accent-rule::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  height: 2px;
+  width: 72px;
+  background: var(--accent);
+  transition: width .7s ease;
+}
+
+.accent-rule:hover::before {
+  width: 100%
+}
+
+/* black card with corner marks */
+.spec {
+  position: relative;
+  border: 1px solid var(--line2);
+  border-radius: 0;
+  transition: border-color .3s;
+}
+
+.spec:hover {
+  border-color: rgba(82, 224, 169, .45)
+}
+
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.ticks::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--mint);
+  border-left: 2px solid var(--mint)
+}
+
+.ticks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--mint);
+  border-right: 2px solid var(--mint)
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line2);
+  padding: .4rem .75rem;
+  transition: border-color .2s, color .2s;
+}
+
+.tag::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  margin-right: .55rem;
+}
+
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--fg, var(--text))
+}
+
+/* screenshot frame */
+.frame {
+  position: relative
+}
+
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--accent);
+  transform: translate(14px, 14px);
+  transition: transform .4s ease;
+}
+
+.frame:hover::before {
+  transform: translate(8px, 8px)
+}
+
+.plate {
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--line2);
+  box-shadow: 0 28px 56px -28px rgba(0, 0, 0, .25);
+}
+
+.plate img {
+  display: block;
+  width: 100%;
+  height: auto
+}
+
+.index-row {
+  transition: background .25s, box-shadow .25s
+}
+
+.index-row:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+/* ---------- skills, contact, footer ---------- */
+.row-hover {
+  transition: background .25s, box-shadow .25s
+}
+
+.row-hover:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.wordmark {
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 12.5vw, 10.5rem);
+  line-height: .95;
+  padding-bottom: .08em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line2);
+  transition: -webkit-text-stroke-color .4s;
+}
+
+.wordmark:hover {
+  -webkit-text-stroke-color: var(--green-ink)
+}
+
+.back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  border: 1px solid var(--line2);
+  padding: .6rem 1rem;
+  transition: border-color .2s, color .2s;
+}
+
+.back-top:hover {
+  border-color: var(--accent);
+  color: var(--accent)
+}
+
+/* sharp corners everywhere */
+[class*="rounded"],
+.btn,
+.btn-solid,
+.plate,
+.plate img {
+  border-radius: 0 !important
+}
+
+::-webkit-scrollbar {
+  width: 10px
+}
+
+::-webkit-scrollbar-track {
+  background: #fff
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BDBDBD;
+  border: 2px solid #fff
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green-ink)
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -369,280 +538,18 @@ em.shimmer {
   em.shimmer {
     animation: none;
     background: none;
-    -webkit-text-fill-color: var(--mint);
-    color: var(--mint)
+    -webkit-text-fill-color: var(--green-ink);
+    color: var(--green-ink)
   }
-}
-
-/* ---------- projects: sharp, spec-sheet look ---------- */
-.numeral {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(4.5rem, 11vw, 8rem);
-  line-height: .8;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--line2)
-}
-
-/* article divider with an emerald segment */
-.accent-rule {
-  position: relative;
-  border-top: 1px solid var(--line)
-}
-
-.accent-rule::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 0;
-  height: 2px;
-  width: 72px;
-  background: var(--mint);
-  transition: width .7s ease
-}
-
-.accent-rule:hover::before {
-  width: 100%
-}
-
-/* description card with corner marks */
-.spec {
-  position: relative;
-  background: var(--panel);
-  border: 1px solid var(--line2);
-  border-radius: 0;
-  transition: border-color .3s
-}
-
-.spec:hover {
-  border-color: rgba(82, 224, 169, .45)
-}
-
-.ticks::before,
-.ticks::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  pointer-events: none
-}
-
-.ticks::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid var(--mint);
-  border-left: 2px solid var(--mint)
-}
-
-.ticks::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid var(--mint);
-  border-right: 2px solid var(--mint)
-}
-
-/* square tech tags */
-.tag {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--line2);
-  padding: .4rem .75rem;
-  transition: border-color .2s, color .2s
-}
-
-.tag::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  background: var(--mint);
-  margin-right: .55rem
-}
-
-.tag:hover {
-  border-color: var(--mint);
-  color: var(--text)
-}
-
-/* screenshot: square white plate with an offset emerald outline */
-.frame {
-  position: relative
-}
-
-.frame::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--mint);
-  transform: translate(14px, 14px);
-  transition: transform .4s ease
-}
-
-.frame:hover::before {
-  transform: translate(8px, 8px)
-}
-
-.plate {
-  position: relative;
-  z-index: 1;
-  padding: 10px;
-  background: #fff;
-  border: 1px solid #fff;
-  border-radius: 0;
-  box-shadow: none
-}
-
-.plate img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 0
-}
-
-/* index rows */
-.index-row {
-  transition: background .25s, box-shadow .25s
-}
-
-.index-row:hover {
-  background: var(--panel);
-  box-shadow: inset 3px 0 0 var(--mint)
-}
-
-/* square buttons inside projects */
-.btn-solid {
-  border-radius: 0
-}
-
-@media (prefers-reduced-motion:reduce) {
 
   .accent-rule::before,
   .frame::before,
   .index-row,
   .spec,
-  .tag {
-    transition: none
-  }
-}
-
-/* ---------- skills, contact and footer ---------- */
-.spec {
-  position: relative;
-  background: var(--panel);
-  border: 1px solid var(--line2);
-  border-radius: 0
-}
-
-.ticks::before,
-.ticks::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  pointer-events: none
-}
-
-.ticks::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid var(--mint);
-  border-left: 2px solid var(--mint)
-}
-
-.ticks::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid var(--mint);
-  border-right: 2px solid var(--mint)
-}
-
-/* row with an emerald hover bar */
-.row-hover {
-  transition: background .25s, box-shadow .25s
-}
-
-.row-hover:hover {
-  background: rgba(82, 224, 169, .06);
-  box-shadow: inset 3px 0 0 var(--mint)
-}
-
-/* footer wordmark */
-.wordmark {
-  margin: 0;
-  text-align: center;
-  white-space: nowrap;
-  user-select: none;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(3rem, 12.5vw, 10.5rem);
-  line-height: .95;
-  padding-bottom: .08em;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--line2);
-  transition: -webkit-text-stroke-color .4s
-}
-
-.wordmark:hover {
-  -webkit-text-stroke-color: var(--mint)
-}
-
-/* square back-to-top button */
-.back-top {
-  display: inline-flex;
-  align-items: center;
-  gap: .75rem;
-  border: 1px solid var(--line2);
-  padding: .6rem 1rem;
-  transition: border-color .2s, color .2s
-}
-
-.back-top:hover {
-  border-color: var(--mint);
-  color: var(--mint)
-}
-
-@media (prefers-reduced-motion:reduce) {
-
+  .tag,
   .row-hover,
   .wordmark,
   .back-top {
     transition: none
   }
-}
-
-/* ---------- sharp corners everywhere ---------- */
-[class*="rounded"],
-.btn,
-.btn-solid,
-.plate,
-.plate img {
-  border-radius: 0 !important
-}
-
-/* links inside white cards: dark green on hover */
-.vellum .nav-link:hover,
-.vellum .link:hover {
-  color: #0B7A55
-}
-
-/* slim dark scrollbar */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #2A2A2A #000
-}
-
-::-webkit-scrollbar {
-  width: 10px
-}
-
-::-webkit-scrollbar-track {
-  background: #000
-}
-
-::-webkit-scrollbar-thumb {
-  background: #2A2A2A;
-  border: 2px solid #000
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--mint)
 }

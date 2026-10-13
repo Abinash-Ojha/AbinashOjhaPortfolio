@@ -35,7 +35,7 @@ function Project({ p, i }) {
   const actionLabel = p.live ? (p.liveLabel ?? 'Visit live site') : 'GitHub Repo'
 
   const image = (
-    <div className="group relative overflow-hidden border border-[var(--line2)] bg-white transition duration-500 hover:-translate-y-1 hover:border-[var(--mint)]">
+    <div className="group relative overflow-hidden border border-[var(--line2)] bg-white transition duration-500 hover:-translate-y-1 hover:border-[var(--accent)]">
       <img src={p.image} alt={p.alt} loading="lazy" className="block h-auto w-full" />
       {primary && (
         <span
@@ -93,7 +93,7 @@ function Project({ p, i }) {
                     href={primary}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-[#0A0A0A] px-6 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#0B7A55]"
+                    className="inline-block bg-[var(--mint)] px-6 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.1em] text-[var(--mint-ink)] transition-colors hover:bg-[#7BEBC0]"
                   >
                     {actionLabel} <span className="arrow" aria-hidden="true">↗</span>
                   </a>

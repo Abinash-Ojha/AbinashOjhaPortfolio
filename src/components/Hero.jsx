@@ -11,7 +11,7 @@ export default function Hero() {
         {/* Left: introduction */}
         <div className="md:col-span-7">
           <p className="label flex items-center gap-4">
-            <span className="draw h-px bg-[var(--mint)]" style={delay(0.1)} aria-hidden="true" />
+            <span className="draw h-px bg-[var(--accent)]" style={delay(0.1)} aria-hidden="true" />
             <span className="fade-up" style={delay(0.2)}>Abinash Ojha · Computer Science Engineer · India</span>
           </p>
 
