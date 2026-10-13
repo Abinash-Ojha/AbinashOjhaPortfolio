@@ -1,55 +1,116 @@
+
 import SectionTitle from './SectionTitle'
-import resume from "../assets/AbinashOjhaResumeOL.pdf";
+import resume from '../assets/AbinashOjhaResumeOL.pdf'
 
 const rows = [
   ['Email', 'ojhabinash546@gmail.com', 'mailto:ojhabinash546@gmail.com', false],
   ['LinkedIn', 'abinash-ojha', 'https://www.linkedin.com/in/abinash-ojha-02a85330b/', true],
   ['GitHub', 'Abinash-Ojha', 'https://github.com/Abinash-Ojha', true],
-  ['Resume', 'Download (PDF)', resume, true],
+  ['Resume', 'Download PDF', resume, true],
 ]
 
 export default function Contact() {
   return (
     <>
-      <section id="contact" className="ink">
+      <section
+        id="contact"
+        className="bg-[#080808] text-white"
+      >
         <div className="mx-auto max-w-[1160px] px-6 py-24 md:px-10 md:py-32">
-          <SectionTitle kicker="Epilogue">Correspon<em>dence</em></SectionTitle>
 
-          <div className="mt-16 grid items-start gap-14 md:grid-cols-12 md:gap-20">
-            <div className="md:col-span-6">
-              <p className="display text-6xl md:text-8xl">Let's build
-<em className="soft"> together</em></p>
-              <p className="soft mt-8 max-w-[40ch] text-lg">
-                I'm open to software engineering opportunities, interesting technical challenges, and conversations about building useful software.
+          <SectionTitle kicker="Epilogue">
+            Correspon<em>dence</em>
+          </SectionTitle>
+
+          <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-20">
+
+            {/* Introduction */}
+            <div>
+              <h2 className="display text-6xl leading-[1.05] tracking-tight md:text-8xl">
+                Let's build
+                <br />
+                <em className="font-normal text-[#10B981]">
+                  together.
+                </em>
+              </h2>
+
+              <p className="mt-7 max-w-[38ch] text-base leading-7 text-neutral-400">
+                I'm open to software engineering opportunities,
+                interesting technical challenges, and conversations
+                about building useful software.
               </p>
+
+              <a
+                href="mailto:ojhabinash546@gmail.com"
+                className="mt-8 inline-flex items-center gap-3 border-b border-[#10B981] pb-2 text-sm text-[#10B981] transition-colors hover:text-white hover:border-white"
+              >
+                Start a conversation
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
 
-            <ul className="md:col-span-6">
-              {rows.map(([label, value, href, external]) => (
-                <li key={label} className="rule-t">
-                  <a
-                    href={href}
-                    {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
-                    className="group grid grid-cols-[5.5rem_1fr_auto] items-baseline gap-4 py-5 transition-colors hover:text-[var(--accent)] md:grid-cols-[6.5rem_1fr_auto]"
-                  >
-                    <span className="label accent">{label}</span>
-                    <span className="display min-w-0 break-words text-2xl md:text-3xl">{value}</span>
-                    <span className="arrow" aria-hidden="true">{external ? '↗' : '→'}</span>
-                  </a>
-                </li>
-              ))}
-              <li className="rule-t" aria-hidden="true" />
-            </ul>
+            {/* Contact links */}
+            <div>
+              <p className="label mb-5 text-neutral-500">
+                FIND ME HERE
+              </p>
+
+              <ul className="border-t border-neutral-800">
+                {rows.map(([label, value, href, external]) => (
+                  <li key={label} className="border-b border-neutral-800">
+                    <a
+                      href={href}
+                      {...(
+                        external
+                          ? {
+                              target: '_blank',
+                              rel: 'noopener noreferrer',
+                            }
+                          : {}
+                      )}
+                      className="group grid grid-cols-[6rem_minmax(0,1fr)_auto] items-center gap-3 py-5 transition-colors hover:text-[#10B981] sm:grid-cols-[7rem_minmax(0,1fr)_auto]"
+                    >
+                      <span className="label text-neutral-500 transition-colors group-hover:text-[#10B981]">
+                        {label}
+                      </span>
+
+                      <span className="min-w-0 break-words text-sm text-neutral-200 transition-colors group-hover:text-[#10B981] sm:text-base">
+                        {value}
+                      </span>
+
+                      <span
+                        className="text-neutral-600 transition-colors group-hover:text-[#10B981]"
+                        aria-hidden="true"
+                      >
+                        {external ? '↗' : '→'}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="ink border-t border-[var(--line)] px-6 py-12 text-center">
-        <span className="mx-auto block h-px w-12 bg-[var(--mint)]" aria-hidden="true" />
-        <p className="label mt-6">Designed &amp; built by Abinash Ojha</p>
-        <p className="label mt-2">Cormorant Garamond · DM Sans · JetBrains Mono</p>
-        <p className="label mt-2">© {new Date().getFullYear()} Abinash Ojha</p>
-      
+      {/* Minimal footer */}
+      <footer className="border-t border-neutral-800 bg-[#080808] px-6 py-7 text-white md:px-10">
+        <div className="mx-auto flex max-w-[1160px] flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <a
+            href="#top"
+            className="display text-2xl tracking-tight transition-colors hover:text-[#10B981]"
+          >
+            AO<span className="text-[#10B981]">.</span>
+          </a>
+
+          <p className="label text-neutral-500">
+            DESIGNED & BUILT BY ABINASH OJHA
+          </p>
+
+          <p className="label text-neutral-600">
+            © {new Date().getFullYear()} ABINASH OJHA
+          </p>
+        </div>
       </footer>
     </>
   )

@@ -553,3 +553,30 @@ em.shimmer {
     transition: none
   }
 }
+
+/* Skills section: white editorial index */
+#skills .spec {
+  --fg: var(--text);
+  --soft: var(--muted);
+  --rule: var(--line);
+  --accent: var(--green-ink);
+  --line2: var(--line);
+
+  color: var(--text);
+  background: #fff;
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+#skills .spec:hover {
+  border-color: var(--line2);
+}
+
+#skills .ticks::before,
+#skills .ticks::after {
+  border-color: var(--green-ink);
+}
+
+#skills .spec .soft {
+  color: var(--muted);
+}
