@@ -580,3 +580,55 @@ em.shimmer {
 #skills .spec .soft {
   color: var(--muted);
 }
+
+/* About and Skills: black with emerald accents */
+#about,
+#skills {
+  --fg: #ffffff;
+  --soft: #a3a3a3;
+  --rule: #262626;
+  --accent: #10b981;
+
+  background: #080808;
+  color: #ffffff;
+  border-color: #262626;
+}
+
+/* Skills index panel */
+#skills .spec {
+  --fg: #ffffff;
+  --soft: #a3a3a3;
+  --rule: #262626;
+  --line2: #333333;
+  --accent: #10b981;
+
+  background: #080808;
+  color: #ffffff;
+  border-color: #262626;
+  box-shadow: none;
+}
+
+/* Emerald corner details */
+#skills .spec.ticks::before,
+#skills .spec.ticks::after {
+  border-color: #10b981;
+}
+
+/* Keep section headings white and highlighted text emerald */
+#about .display,
+#skills .display {
+  color: #ffffff;
+}
+
+#about em,
+#skills em,
+#about .accent,
+#skills .accent {
+  color: #10b981;
+}
+
+/* Subtle dividers */
+#about .rule-t,
+#skills .rule-t {
+  border-color: #262626;
+}
