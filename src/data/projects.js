@@ -34,7 +34,7 @@ export const projects = [
     live: 'https://ayur-diet.netlify.app',
   },
   {
-    id: 'furniture', numeral: 'III', name: 'Sri Satya Sai Furniture', tagline: 'Website for a local furniture shop',
+    id: 'furniture', numeral: 'III', name: 'FurniKart', tagline: 'Website for a local furniture shop',
     lead: 'A website I designed and built for a local furniture shop, giving the business a place online that matches its own look.',
     body: [
       'The shop had a clear idea of how its site should look, so I worked from their theme and their customizations instead of a generic template, shaping the layout, colours and content around the shop’s own identity.',
