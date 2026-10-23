@@ -209,6 +209,7 @@ em.soft {
   transform: translateY(-2px);
 }
 
+
 .link {
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
@@ -631,4 +632,412 @@ em.shimmer {
 #about .rule-t,
 #skills .rule-t {
   border-color: #262626;
+}
+
+/* ---------- Hero: layout ---------- */
+.hero-root {
+  position: relative;
+  overflow: hidden;
+}
+
+.g-dot {
+  color: #0E9F6E;
+}
+
+/* ---------- Decorative layer ---------- */
+.hero-deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-deco {
+    display: block;
+  }
+}
+
+.deco-circle {
+  position: absolute;
+  left: -16%;
+  top: 28%;
+  width: 34vw;
+  height: 34vw;
+  max-width: 520px;
+  max-height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, rgba(111, 207, 173, .22), rgba(111, 207, 173, .05) 70%, transparent 72%);
+}
+
+.deco-mist {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 38%;
+  height: 38%;
+  background:
+    radial-gradient(ellipse at 20% 100%, rgba(120, 140, 130, .28), transparent 60%),
+    radial-gradient(ellipse at 55% 110%, rgba(111, 207, 173, .18), transparent 60%);
+  -webkit-mask-image: linear-gradient(to top, #000 30%, transparent);
+  mask-image: linear-gradient(to top, #000 30%, transparent);
+}
+
+.deco-rock {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11vw;
+  height: 20vh;
+  min-width: 140px;
+  background: linear-gradient(135deg, #0a0a0a 20%, #1a5c45 55%, #6FCFAD 100%);
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 70% 70%, 40% 45%, 0 12%);
+  opacity: .95;
+}
+
+.deco-ring {
+  position: absolute;
+  right: 3%;
+  top: 8%;
+  width: 36vw;
+  max-width: 560px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px dashed rgba(10, 10, 10, .18);
+  clip-path: inset(0 40% 0 0);
+  /* shows only the left arc, like the reference */
+  transform: translateX(-12%);
+}
+
+/* Rails */
+.rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.rail-l {
+  left: 5.5%;
+}
+
+.rail-r {
+  right: 5.5%;
+}
+
+.rail-line {
+  position: absolute;
+  left: 0;
+  top: 14%;
+  height: 30%;
+  width: 1px;
+  background: rgba(10, 10, 10, .55);
+}
+
+.rail-r .rail-line {
+  top: 8%;
+  height: 80%;
+  background: rgba(10, 10, 10, .25);
+}
+
+.rail-sq {
+  position: absolute;
+  left: -4px;
+  top: 27%;
+  width: 9px;
+  height: 9px;
+  background: #0E9F6E;
+}
+
+.rail-dot {
+  position: absolute;
+  left: -6px;
+  top: 40%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #0E9F6E;
+  box-shadow: 0 0 0 10px rgba(111, 207, 173, .18);
+}
+
+.rail-text {
+  position: absolute;
+  left: -7px;
+  top: 48%;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font: 500 11px/1 var(--font-mono, 'JetBrains Mono', monospace);
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, .6);
+}
+
+.rail-num {
+  position: absolute;
+  left: -10px;
+  bottom: 6%;
+  font: 500 11px/1 var(--font-mono, 'JetBrains Mono', monospace);
+  letter-spacing: .25em;
+  color: #0E9F6E;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.rail-num::after {
+  content: "";
+  width: 64px;
+  height: 1px;
+  background: rgba(10, 10, 10, .3);
+}
+
+.rail-num-r {
+  left: auto;
+  right: 0;
+  flex-direction: row;
+}
+
+.rail-num-r::after {
+  display: none;
+}
+
+.rail-num-r i {
+  width: 10px;
+  height: 10px;
+  background: #0E9F6E;
+  display: inline-block;
+}
+
+/* ---------- Evolve underline ---------- */
+.evolve-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.evolve-line {
+  position: absolute;
+  left: 0;
+  bottom: -.12em;
+  width: 100%;
+  height: .14em;
+  fill: none;
+  stroke: #0E9F6E;
+  stroke-width: 2;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.evolve-line path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: evolve-draw 1s ease forwards;
+  animation-delay: var(--d, 1.2s);
+}
+
+@keyframes evolve-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- Button ---------- */
+.hero-root .btn {
+  box-shadow: 0 0 0 1px rgba(111, 207, 173, .35), 0 10px 26px -10px rgba(111, 207, 173, .65);
+}
+
+.hero-root .btn .arrow {
+  color: #6FCFAD;
+}
+
+/* ---------- Card ---------- */
+.hero-card {
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(111, 207, 173, .12),
+    0 0 70px rgba(111, 207, 173, .28),
+    0 30px 60px -30px rgba(0, 0, 0, .5);
+}
+
+.hero-card .card-inner {
+  position: relative;
+}
+
+.hero-card .card-inner::before,
+.hero-card .card-inner::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 0 solid #6FCFAD;
+  pointer-events: none;
+}
+
+.hero-card .card-inner::before {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.hero-card .card-inner::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.hero-card .card-rule {
+  background-color: #6FCFAD !important;
+}
+
+.hero-card .g-dot {
+  color: #6FCFAD;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evolve-line path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- Final polish ---------- */
+
+/* Blueprint grid replaces the rock: faint, fades in from the top-right */
+.deco-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(10, 10, 10, .05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 10, 10, .05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, #000 0%, transparent 55%);
+  mask-image: radial-gradient(ellipse at 100% 0%, #000 0%, transparent 55%);
+}
+
+/* Right rail dot drifts slowly */
+.rail-dot {
+  animation: rail-drift 7s ease-in-out infinite alternate;
+}
+
+@keyframes rail-drift {
+  from {
+    top: 34%;
+  }
+
+  to {
+    top: 52%;
+  }
+}
+
+/* Card spotlight follows the cursor */
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .35s ease;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(111, 207, 173, .14),
+      transparent 70%);
+}
+
+.hero-card:hover::before {
+  opacity: 1;
+}
+
+.hero-card .card-inner {
+  z-index: 1;
+}
+
+/* Tech list: quiet hover */
+.tech-item {
+  transition: color .2s ease;
+  cursor: default;
+}
+
+.tech-item:hover {
+  color: #0E9F6E;
+}
+
+/* Resume link underline turns green */
+.hero-root .link:hover {
+  border-color: #0E9F6E;
+}
+
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font: 500 10px/1 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, .55);
+}
+
+.scroll-cue i {
+  position: relative;
+  width: 1px;
+  height: 34px;
+  background: rgba(10, 10, 10, .15);
+  overflow: hidden;
+}
+
+.scroll-cue i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -40%;
+  width: 1px;
+  height: 40%;
+  background: #0E9F6E;
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  to {
+    top: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-cue {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .rail-dot,
+  .scroll-cue i::after {
+    animation: none;
+  }
+
+  .hero-card::before {
+    display: none;
+  }
+}
+
+/* Tech list: darker and easier to read */
+.hero-root .tech-list {
+  color: #0A0A0A;
+  font-weight: 500;
+}
+
+.hero-root .tech-list>span {
+  color: #0A0A0A;
+  transition: color .2s ease;
+}
+
+.hero-root .tech-list>span:hover {
+  color: #0E9F6E;
 }
